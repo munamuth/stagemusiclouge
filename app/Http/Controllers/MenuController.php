@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use Illuminate\Http\Request;
-
+use App\MenuCategory;
 class MenuController extends Controller
 {
     /**
@@ -12,9 +12,11 @@ class MenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Menu $menu, MenuCategory $category)
     {
-        //
+        $data = $menu->get();
+        $category = $category->get();
+        return view('admin.menu', compact('data', 'category'));
     }
 
     /**

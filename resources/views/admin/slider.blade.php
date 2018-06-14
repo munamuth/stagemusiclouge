@@ -30,16 +30,16 @@
 	<div class="list_image card">
 	<div class="card-body">
 			@foreach( $data as $d )
-			<div class="image_one" style="width: 25%; float: left; padding: 5px;">
+			<div class="image_one" style="width: 25%; float: left; padding: 5px; position: relative;">
 				<img src="{{ url('/node_modules/Image/Slider/').'/'.$d->name }}" class="img-fluid">
 				<a class="deleteImage" href="{{ url('/admin/slider/destroy/'.$d->id.'/'.$d->name) }}"><i class="fa fa-close"></i></a>
 			</div>
 			@endforeach
 			<style type="text/css">
 				.deleteImage{
-					position: relative;
-					top: -98px;
-					right: -220px;
+					position: absolute;
+					top: 2px;
+					right: 2px;
 					background: #fff;
 					cursor: pointer;
 				}

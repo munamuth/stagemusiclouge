@@ -10,7 +10,7 @@ use Image;
 class ImageUpload extends Controller
 {
     public static function imageUpload($path, $file, $w, $h ){
-       	$imageName = 'stagemusiclouge_'.Carbon::now()->format('YmdHs').'.'.$file->getClientOriginalExtension();
+       	$imageName = 'stagemusiclouge_'.Carbon::now()->format('YmdHs').md5($file. time()).'.'.$file->getClientOriginalExtension();
        	$upload = $file->move($path, $imageName);
        	$upload = Image::make($upload)->resize($w, $h)->save();
        	return $imageName;

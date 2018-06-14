@@ -21,13 +21,27 @@ Route::middleware(['web'])->group(function () {
     Route::post('/admin/slider', 'SliderController@store');
     Route::get('/admin/slider/destroy/{id}/{name}', 'SliderController@destroy');
 
-    Route::get('/admin/slider', 'SliderController@index');
+    Route::get('/admin/gallery', 'GaleryController@index');
+    Route::post('/admin/gallery', 'GaleryController@store');    
+    Route::get('/admin/gallery/destroy/{id}/{name}', 'GaleryController@destroy');
+
+    Route::get('/admin/menu', 'MenuController@index');
+
+
+    Route::get('/admin/menu-category', 'MenuCategoryController@index');
+    Route::post('/admin/menu-category', 'MenuCategoryController@store');
+    Route::get('/admin/menu-category/destroy/{id}', 'MenuCategoryController@destroy');
 
 
 });
 
 Route::middleware(['web'])->group(function () {
-	//Route::get('/admin', 'TblPostController@index');
+	Route::get('/', 'PageController@index');
+	Route::get('/menu', 'PageController@index');
+	Route::get('/contact', 'PageController@index');
+	Route::get('/about', 'PageController@index');
+	Route::get('/news-and-event', 'PageController@index');
+	Route::get('/galery', 'PageController@index');
 });
 
 
