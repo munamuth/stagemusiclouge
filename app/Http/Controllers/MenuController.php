@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\MenuCategory;
 use App\Http\Controllers\ImageUpload;
 use File;
+use Config;
 class MenuController extends Controller
 {
     /**
@@ -16,6 +17,7 @@ class MenuController extends Controller
      */
     public function index(Menu $menu, MenuCategory $category)
     {
+
         $data = $menu->get();
         $category = $category->get();
         return view('admin.menu', compact('data', 'category'));
