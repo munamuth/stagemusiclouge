@@ -17,7 +17,6 @@ class MenuController extends Controller
      */
     public function index(Menu $menu, MenuCategory $category)
     {
-
         $data = $menu->get();
         $category = $category->get();
         return view('admin.menu', compact('data', 'category'));
