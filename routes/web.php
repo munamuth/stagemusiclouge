@@ -13,7 +13,7 @@
 
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/', function(){
+    Route::get('/admin', function(){
         return view('admin');
     });
 
@@ -26,6 +26,15 @@ Route::middleware(['web'])->group(function () {
     Route::get('/admin/gallery/destroy/{id}/{name}', 'GaleryController@destroy');
 
     Route::get('/admin/menu', 'MenuController@index');
+    Route::post('/admin/menu', 'MenuController@store');
+    Route::post('/admin/menu/change-photo/{id}', 'MenuController@changePhoto');
+    Route::get('/admin/menu/destroy/{id}', 'MenuController@destroy');
+    Route::get('/admin/menu/edit/{id}', 'MenuController@edit');
+    Route::post('/admin/menu/update/{id}', 'MenuController@update');
+
+
+
+
 
 
     Route::get('/admin/menu-category', 'MenuCategoryController@index');
