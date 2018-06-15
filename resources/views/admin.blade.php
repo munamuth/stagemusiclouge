@@ -134,7 +134,7 @@
                 @yield("content")
             </div>
         </div>
-        <p class="text-center">wWw.StageMusicLounge.cOm &copy; <?php echo date('Y') ?></p>
+        <p class="text-center">wWw.StageMusicLounge.cOm &copy; - <?php echo date('Y') ?></p>
     </div>
 
 
