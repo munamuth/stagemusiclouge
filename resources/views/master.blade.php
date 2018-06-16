@@ -18,37 +18,47 @@
                 padding: 0;
             }
            .header{
+              position: relative;
                 width: 100%;
                 height: 150px;
-                background: #77b7d6;
+                background: #f59419;
                 padding: 0px;
                 top: 0px;
                 left: 0px;
                 border-bottom: solid 5px #e62b4d;
            }
            .header>.logo{
-                width: 15%;
+                max-width: 50%;
                 padding-left: 5%;
+                position: absolute;
+                display: block;
+                top:25%;
+           }
+           .header>logo>a{
+            vertical-align:  middle;
            }
            .header>.logo>a>img{
-                width: 150px; 
-                height: 150px;
+                width: 200px; 
+                vertical-align:  middle;
                 float: left;
            }
            .header>.menu_area{
                 width: 80%;
                 float: right;
+                position: relative;
            }
            ul.menu{
-                width: 100%;
+                position: absolute;
+                width: auto;
                 list-style: none;
                 margin: 0;
                 margin-left: 10px;
                 margin-top: 89px;
                 padding: 0;
                 padding-top: 2px;
-                float: right;
-                background: #77b7d6;
+                padding-right: 15px;
+                background: #f59419;
+                right: 0px;
            }
            ul.menu>li{
                 float: left;
@@ -98,7 +108,7 @@
                 border-top: solid 5px #e62b4d;
                 width: 100%;
                 padding: 15px;
-                background: #456;
+                background: #f16f50;
                 z-index: 0;
            }
            .footer .panel{
@@ -185,7 +195,7 @@
         <div class="header">
             <div class="logo">
                 <a href="/">
-                    <img alt="Brand" src="/logo/logo.png">
+                    <img alt="Brand" src="{{ url('node_modules/logo/logo.png') }}" class="img-fluid">
                 </a>
             </div>
             <div class="menu_area">
@@ -233,7 +243,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-5">
-                        <div class="card no_radius">
+                        <div class="card no_radius" style="background: transparent; border: transparent;">
                             <div class="card-body text-center">
                                 <div class="fb-page" data-href="https://www.facebook.com/Stagemusiclounge/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Stagemusiclounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/grandtechsys/">Stagemusiclounge</a></blockquote></div>
                                 </div>
