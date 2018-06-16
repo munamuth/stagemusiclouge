@@ -1,92 +1,283 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>MY KH</title>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
-    <style type="text/css">
-        .image{
-                width: 30%;
-                float: left;
-        }
-        @media only screen and (max-width: 767px){
-            .image{
-                width: 100%;
+        <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/jquery-ui/jquery-ui.css') }}">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
             }
-        }
-    </style>
-</head>
-<body>
-   
-     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="/">MyKH</a>
+           .header{
+                width: 100%;
+                height: 150px;
+                background: #77b7d6;
+                padding: 0px;
+                top: 0px;
+                left: 0px;
+                border-bottom: solid 5px #e62b4d;
+           }
+           .header>.logo{
+                width: 15%;
+                padding-left: 5%;
+           }
+           .header>.logo>a>img{
+                width: 150px; 
+                height: 150px;
+                float: left;
+           }
+           .header>.menu_area{
+                width: 80%;
+                float: right;
+           }
+           ul.menu{
+                width: 100%;
+                list-style: none;
+                margin: 0;
+                margin-left: 10px;
+                margin-top: 89px;
+                padding: 0;
+                padding-top: 2px;
+                float: right;
+                background: #77b7d6;
+           }
+           ul.menu>li{
+                float: left;
+           }
+           ul.menu>li>a{
+                padding: 15px 5px 15px 5px;
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+                float: left;
+                /*text-transform: uppercase;*/
+           }
+           ul.menu>li>a:hover{
+                background: inherit;
+                color: #000;
+                /*border-bottom: solid 3px #123;*/
+           }
+           ul.sub_menu{
+                display: none;
+                width: 500px;
+                position: absolute;
+                margin-top: 52px;
+                padding-left: 0px;
+                list-style: none;
+                background: #002680;
+                opacity: 0.95;
+                z-index: 16
+           }
+           ul.sub_menu>li>a{
+                padding: 15px; 
+                display: block;
+                text-decoration: none;
+                color: #fff;
+           }
+           ul.sub_menu>li>a:hover{
+                background: #123;
+           }
+           .has_sub:hover ul.sub_menu{
+                display: block;
+           }
+           .small_menu>button{
+                position: absolute;
+                top: 30px;
+                right: 5px;
+           }
+           .footer{
+                border-top: solid 5px #e62b4d;
+                width: 100%;
+                padding: 15px;
+                background: #456;
+                z-index: 0;
+           }
+           .footer .panel{
+                background: transparent;
+           }
+           .footer th, .footer td, .footer td>a{
+                color: #fff;
+                padding-right: 5px;
+                padding-top: 10px;
+                text-decoration: none;
+           }
+           #menu_back{
+                display: none;
+           }
+           .container{
+            min-height: 400px;
+           }
+           @media (min-width: 1000px){
+                .small_menu>button{
+                    display: none;
+                }
+           }
+           @media( max-width: 999px ){
+                .header{
+                    height: 100px;
+                }
+                .header>.logo>a>img{
+                    width: 100px; 
+                    height: 100px;
+               }
+                #menu_back{
+                    display: block;
+                }
+                .header>.menu_area{
+                    width: 60%;
+                    position: absolute;
+                    right: -60%;
+                    display: none;
+                    z-index: 16;
+                }
+                ul.menu{
+                    margin-top: 0px;
+                }
+               ul.menu>li{
+                    width: 100%;
+                    float: left;
+               }               
+               ul.menu>li:first-child{
+                    width: 100%;
+                    float: left;
+               }
+               ul.menu>li>a{
+                    width: 100%;
+                    padding-left: 30px;
+               }
+               ul.menu>li>a:hover{
+                    background: #123;
+               }
+               ul.sub_menu{
+                    position: relative;
+                    width: 100%;
+               }
+               ul.sub_menu>li{
+                    border-top: solid 1px #fff;
+               }
+               ul.sub_menu>li>a{
+                    padding-left: 35px;
+                    position: relative;
+               }
+               .container{
+                min-height: 215px;
+              }
+           }
+           .focus{/*
+              border-bottom: solid 3px #123;*/
+           }
+           .focus:hover{
+              border-bottom: none;
+           }
+        </style>
+        @yield('header')
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo">
+                <a href="/">
+                    <img alt="Brand" src="/logo/logo.png">
+                </a>
+            </div>
+            <div class="menu_area">
+                <ul class="menu">
+                    <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>
+                    <li id="home"><a href="/">Home</a></li>
+                    <li id="about"><a href="/">About Us</a></li>
+                    <li id="contact"><a href="/">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="small_menu">
+                <button type="button" class="btn btn-success no_radius" id="btn-menu"><span class="fa fa-bars"></span></button>
+            </div>
 
-  <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-  <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                @foreach( App\tbl_menu::where('status', 1)->get() as $m)
-                <li class="nav-item">
-                    <a class="nav-link" href="/post/{{$m->url}}" link="{{$m->name}}">{{$m->name}}</a>
-                </li>
-                @endforeach
-            </ul>
-            <form class="form-navbar ml-auto">
-                <div class="btn-group">
-                    <input type="text" name="q" class="form-control form-control-sm" placeholder="Search...">
-                    <button class="btn btn-light btn-sm">Search</button>
+        </div>
+        <!-- END MENU VISIBLE <992PX -->
+        <div class="container-fluid">
+            <div class="row">
+                @yield('body')
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-7">
+                        <div class="panel panel-defualt no_radius">
+                            <div class="'panel-body">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-map-marker"></span></th><th>Address</th><td> #375, Preah Sisowath Quay, Phnom Penh</td>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-phone"></span></th><th>Tel</th><td><a href="tel:+855 12 77 55 58">+855 17 991 303</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-phone"></span></th><th></th><td><a href="tel:+855 12 77 55 58">+855 16 605 781</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-envelope"></span></th><th>Email</th><td><a href="mailto:sales@grandtechsys.com">sales@stagemusiclounge.com</a></td>
+                                        </tr>
+                                    </tbody>                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-5">
+                        <div class="card no_radius">
+                            <div class="card-body text-center">
+                                <div class="fb-page" data-href="https://www.facebook.com/Stagemusiclounge/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Stagemusiclounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/grandtechsys/">Stagemusiclounge</a></blockquote></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </nav>
-
-    <div style="margin-top: 50px;"></div>
-    <marquee>www.mykh.biz</marquee>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-3">
-                <ul class="navbar-nav">
-                @foreach( App\tbl_menu::where('status', 1)->get() as $m)
-                <li class="nav-item">
-                    <a class="nav-link" href="/post/{{$m->url}}" link="{{$m->name}}">{{$m->name}}</a>
-                </li>
-                @endforeach
-            </ul>
+            </div>      
+            <div class="cpright" style="padding: 15px; text-align: center; border-top: solid 5px #e62b4d;"> 
+              <a href="/">wWw.StageMusicLounge.cOm</a> &copy; {{ date('Y') }}
+            </div> 
+            <div class="fb_page">
+                     
             </div>
-            <div class="col-xs-12 col-sm-7 bg-light">
-                @yield('content')
-                
-            </div>
-            <div class="col-xs-12 col-sm-2 text-center" style="padding: 0">
-                <div class="fb-page" data-href="https://www.facebook.com/mykh.biz/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/mykh.biz/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mykh.biz/">MYKH</a></blockquote></div>
-            </div>
-        </div>
-    </div>
 
+        <!-- START SCRIPT -->
+        <script type="application/javascript" src="{{ url('/node_modules/jquery/dist/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{ url('/node_modules/jquery-ui/jquery-ui.js') }}"></script>
+        <script type="application/javascript" src="{{ url('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        
+        <script type="text/javascript">
+            $('.date').datepicker({ dateFormat: "dd-mm-yy"});
+            $('#btn-menu').click( function(){
+                $('.menu_area').show( );
+                $('.menu_area').animate({right: '0%'})                
+            });
+            $('#menu_back').click( function(){
 
+                $('.menu_area').animate({right: '-100%'}, function(){
+                    $(this).hide();
+                });
+            });
+        </script>
+        <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+          </script>
+        <!-- END SCRIPT -->
+        @yield('script')
 
-    <p class="text-center">www.mykh.biz 2018</p>
-
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12&appId=928194030589343&autoLogAppEvents=1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-    <script type="text/javascript" src="/jquery/jquery-3.2.1.slim.min.js"></script>
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/popper/popper.min.js"></script>
-</body>
+    </body>
 </html>

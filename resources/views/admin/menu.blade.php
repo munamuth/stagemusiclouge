@@ -75,10 +75,12 @@
 			</table>
 		</div>
 	</div>
+	<div style="display: none;">
 	<form method="post" enctype="multipart/form-data" id="frmChangePhoto">
 		{{ csrf_field() }}
 		<input type="file" name="file" onchange="document.getElementById('frmChangePhoto').submit()" id="changePhoto">
 	</form>
+	</div>
 	</div>
 @endsection
 @section('script')

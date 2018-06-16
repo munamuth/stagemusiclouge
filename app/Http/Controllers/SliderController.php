@@ -46,7 +46,7 @@ class SliderController extends Controller
 
         $file = $request->file;
         foreach ($file as  $value) {
-           $imageName = ImageUpload::imageUpload('node_modules/Image/Slider', $value, 768, 300);
+           $imageName = ImageUpload::imageUpload('node_modules/Image/Slider', $value, 1366, 768);
            $image = new Image();
             $slider = new Slider();
             $sliderImage = new SliderImage();
