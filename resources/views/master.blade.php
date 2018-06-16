@@ -235,7 +235,7 @@
                                             <th><span class="glyphicon glyphicon-phone"></span></th><th></th><td><a href="tel:+855 12 77 55 58">+855 16 605 781</a></td>
                                         </tr>
                                         <tr>
-                                            <th><span class="glyphicon glyphicon-envelope"></span></th><th>Email</th><td><a href="mailto:sales@grandtechsys.com">sales@stagemusiclounge.com</a></td>
+                                            <th><span class="glyphicon glyphicon-envelope"></span></th><th>Email</th><td><a href="mailto:sales@grandtechsys.com">sales@stagemusiclounge.com </a></td>
                                         </tr>
                                     </tbody>                                    
                                 </table>
