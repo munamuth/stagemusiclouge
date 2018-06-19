@@ -42,6 +42,7 @@ Route::middleware(['web'])->group(function () {
     Route::post('/admin/about/update/photo/{id}', 'AboutController@changePhoto');
 
     Route::get('/admin/news-and-events', 'NewsAndEventController@index');
+    Route::post('/admin/news-and-events', 'NewsAndEventController@store');
 
 
 });

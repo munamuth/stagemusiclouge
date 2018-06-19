@@ -14,6 +14,8 @@ class NewsAndEventController extends Controller
      */
     public function index()
     {
+        $news = new NewsAndEvent();
+        $news = $news->get();
         return view('admin.news-and-event', compact('news'));
     }
 
@@ -35,7 +37,14 @@ class NewsAndEventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news = new NewsAndEvent();
+        $imageName = ImageUpload::imageUpload('node_modules/Image/News', $request->file, 700, 500);
+        $news->name = $request->name;
+        $news->name = str_slug($request->name);
+        $news->img = $imageName;
+        $news->descr = $request->descr;
+        $news->save();
+        return back();
     }
 
     /**
