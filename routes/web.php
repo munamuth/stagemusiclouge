@@ -12,7 +12,7 @@
 */
 
 
-Route::middleware(['web'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function(){
         return view('admin');
     });
