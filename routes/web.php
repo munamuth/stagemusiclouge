@@ -12,7 +12,7 @@
 */
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['web'])->group(function () {
     Route::get('/admin', function(){
         return view('admin');
     });
@@ -50,7 +50,7 @@ Route::middleware(['web'])->group(function () {
 	Route::get('/contact', 'PageController@index');
 	Route::get('/about', 'PageController@index');
 	Route::get('/news-and-event', 'PageController@index');
-	Route::get('/galery', 'PageController@index');
+	Route::get('/gallery', 'PageController@gallery');
 });
 
 

@@ -5,6 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+        <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Stage Music Lounge">
+        <meta name="keywords" content="Bar, Music, Drink, Food, Restuarant">
+        <meta name="author" content="Stage Music Lounge">
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
 
@@ -22,7 +27,7 @@
                 position: relative;
                 width: 100%;
                 height: 150px;
-                background: #f59419;
+                background: #000;
                 padding: 0px;
                 top: 0px;
                 left: 0px;
@@ -66,7 +71,7 @@
            }
            ul.menu>li>a{
                 padding: 15px 5px 15px 5px;
-                color: #fff;
+                color: #ffc2c2;
                 font-weight: bold;
                 text-decoration: none;
                 float: left;
@@ -74,7 +79,7 @@
            }
            ul.menu>li>a:hover{
                 background: inherit;
-                color: #000;
+                color: #fffeee;
                 /*border-bottom: solid 3px #123;*/
            }
            ul.sub_menu{
@@ -198,12 +203,14 @@
                 </a>
             </div>
             <div class="menu_area">
-                <!-- <ul class="menu">
-                    <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>
-                    <li id="home"><a href="/">Events</a></li>
-                    <li id="about"><a href="/">About Us</a></li>
-                    <li id="contact"><a href="/">Contact Us</a></li>
-                </ul> -->
+              <ul class="menu">
+                <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>
+                <li id="home"><a href="/events">Events</a></li>
+                <li id="home"><a href="/gallery">Gallery</a></li>
+                <li id="about"><a href="/about-us">About Us</a></li>
+                <li id="contact"><a href="/">Contact Us</a></li>
+                <li id="contact"><a href="/Career">Career</a></li>
+              </ul>
             </div>
             <div class="small_menu">
                 <button type="button" class="btn btn-success no_radius" id="btn-menu"><span class="fa fa-bars"></span></button>
@@ -211,11 +218,8 @@
 
         </div>
         <!-- END MENU VISIBLE <992PX -->
-        <div class="container-fluid">
-            <div class="row">
-                @yield('body')
-            </div>
-        </div>
+        
+        @yield('body')
         <div class="footer">
             <div class="container">
                 <div class="row">
