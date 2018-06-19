@@ -18,7 +18,8 @@
                 padding: 0;
             }
            .header{
-              position: relative;
+                border-top: solid 5px #786;
+                position: relative;
                 width: 100%;
                 height: 150px;
                 background: #f59419;
@@ -57,8 +58,8 @@
                 padding: 0;
                 padding-top: 2px;
                 padding-right: 15px;
-                background: #f59419;
-                right: 0px;
+                background: transparent;
+                right: 100px;
            }
            ul.menu>li{
                 float: left;
@@ -135,10 +136,6 @@
                 .header{
                     height: 100px;
                 }
-                .header>.logo>a>img{
-                    width: 100px; 
-                    height: 100px;
-               }
                 #menu_back{
                     display: block;
                 }
@@ -151,6 +148,8 @@
                 }
                 ul.menu{
                     margin-top: 0px;
+                    background: #123;
+                    right: 0;
                 }
                ul.menu>li{
                     width: 100%;
@@ -199,12 +198,12 @@
                 </a>
             </div>
             <div class="menu_area">
-                <ul class="menu">
+                <!-- <ul class="menu">
                     <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>
-                    <li id="home"><a href="/">Home</a></li>
+                    <li id="home"><a href="/">Events</a></li>
                     <li id="about"><a href="/">About Us</a></li>
                     <li id="contact"><a href="/">Contact Us</a></li>
-                </ul>
+                </ul> -->
             </div>
             <div class="small_menu">
                 <button type="button" class="btn btn-success no_radius" id="btn-menu"><span class="fa fa-bars"></span></button>
