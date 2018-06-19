@@ -38,10 +38,14 @@
 			<style type="text/css">
 				.deleteImage{
 					position: absolute;
-					top: 2px;
-					right: 2px;
-					background: #fff;
+					color: #fff;
+					top: 0px;
+					right: 5px;
+					background: transparent;
 					cursor: pointer;
+				}
+				.deleteImage:hover{
+					color: #000;
 				}
 			</style>
 	</div>

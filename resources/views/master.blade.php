@@ -130,7 +130,7 @@
                 display: none;
            }
            .container{
-            min-height: 400px;
+            min-height: 300px;
            }
            @media (min-width: 1000px){
                 .small_menu>button{
@@ -204,8 +204,10 @@
             </div>
             <div class="menu_area">
               <ul class="menu">
-                <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>
+                <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>                
+                <li id="home"><a href="/"><i class="fa fa-home"></i></a></li>
                 <li id="home"><a href="/events">Events</a></li>
+                <li id="home"><a href="/menu">Menu</a></li>
                 <li id="home"><a href="/gallery">Gallery</a></li>
                 <li id="about"><a href="/about-us">About Us</a></li>
                 <li id="contact"><a href="/">Contact Us</a></li>

@@ -7,7 +7,10 @@
 			margin-bottom: 0;
 		}
 	</style>
-	<div class="card">
+	<div class="" style="width: 100%; margin-bottom: 5px;">
+		<!-- <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#pnAdd" style="width:150px;">New</button> -->
+	</div>
+	<div class="card" id="pnAdd">
 		<div class="card-header">
 			<h1>New Menu</h1>
 		</div>
@@ -44,35 +47,36 @@
 	</div>
 	<br>
 	<div class="card">
-	<div class="card-body">
-		<div class="table-responsive">
-			<table class="table table-tripped">
-				<thead>
-					<tr>
-						<th>Photo</th>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Action</th>
-					</tr>					
-				</thead>
-				<tbody>
-					@foreach( $data as $d )
-					<tr>
-						<td style="max-width: 100px"><img src="{{url('/node_modules/Image/Menu/'. $d->image)}}" style="max-height: 100px; width: 100px;"></td>
-						<td>{{$d->name}}</td>
-						<td>{{$d->type->name}}</td>
-						<td>
-							<a href="/menu/{{$d->slug}}" class="btn btn-sm btn-success" target="_BLANK">View</a>
-							<a href="/admin/menu/edit/{{$d->id}}" class="btn btn-warning btn-sm" target="_BLANK">Edit</a>
-							<a href="/admin/menu/destroy/{{$d->id}}" class="btn btn-danger btn-sm">Destroy</a>
+		<div class="card-body" style="padding: 0">
+			<div class="table-responsive">
+				<table class="table table-tripped">
+					<thead>
+						<tr>
+							<th>Photo</th>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Action</th>
+						</tr>					
+					</thead>
+					<tbody>
+						@foreach( $data as $d )
+						<tr>
+							<td style="max-width: 100px"><img src="{{url('/node_modules/Image/Menu/'. $d->image)}}" style="max-height: 100px; width: 100px;"></td>
+							<td>{{$d->name}}</td>
+							<td>{{$d->type->name}}</td>
+							<td>
+								<a href="/menu/{{$d->slug}}" class="btn btn-sm btn-success" target="_BLANK">View</a>
+								<a href="/admin/menu/edit/{{$d->id}}" class="btn btn-warning btn-sm" target="_BLANK">Edit</a>
+								<a href="/admin/menu/destroy/{{$d->id}}" class="btn btn-danger btn-sm">Destroy</a>
 
-							<a href="#" class="btn btn-danger btn-sm" onclick="btnChangePhoto_Click({{ $d->id}})">Change Photo</a>
-						</td>
-					</tr>
-					@endforeach
-					
-				</tbody>
-			</table>
+								<a href="#" class="btn btn-danger btn-sm" onclick="btnChangePhoto_Click({{ $d->id}})">Change Photo</a>
+							</td>
+						</tr>
+						@endforeach
+						
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<div style="display: none;">

@@ -33,24 +33,25 @@ Route::middleware(['web'])->group(function () {
     Route::post('/admin/menu/update/{id}', 'MenuController@update');
 
 
-
-
-
-
     Route::get('/admin/menu-category', 'MenuCategoryController@index');
     Route::post('/admin/menu-category', 'MenuCategoryController@store');
     Route::get('/admin/menu-category/destroy/{id}', 'MenuCategoryController@destroy');
+
+    Route::get('/admin/about', 'AboutController@index');
+    Route::post('/admin/about/update/{id}', 'AboutController@update');
+    Route::post('/admin/about/update/photo/{id}', 'AboutController@changePhoto');
 
 
 });
 
 Route::middleware(['web'])->group(function () {
 	Route::get('/', 'PageController@index');
-	Route::get('/menu', 'PageController@index');
+	Route::get('/menu', 'PageController@menu');
 	Route::get('/contact', 'PageController@index');
 	Route::get('/about', 'PageController@index');
 	Route::get('/news-and-event', 'PageController@index');
 	Route::get('/gallery', 'PageController@gallery');
+	Route::get('/about-us', 'PageController@about');
 });
 
 
