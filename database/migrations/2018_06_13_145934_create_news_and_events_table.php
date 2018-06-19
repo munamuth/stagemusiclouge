@@ -15,6 +15,10 @@ class CreateNewsAndEventsTable extends Migration
     {
         Schema::create('news_and_events', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('img')->default('default.png');
+            $table->longtext('descr');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

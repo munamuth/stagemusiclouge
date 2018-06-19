@@ -139,6 +139,7 @@
            }
            @media( max-width: 999px ){
                 .header{
+                    position: relative;
                     height: 100px;
                 }
                 #menu_back{
@@ -158,7 +159,7 @@
                 }
                ul.menu>li{
                     width: 100%;
-                    float: left;
+                    float: right;              
                }               
                ul.menu>li:first-child{
                     width: 100%;
@@ -206,7 +207,7 @@
               <ul class="menu">
                 <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>                
                 <li id="home"><a href="/"><i class="fa fa-home"></i></a></li>
-                <li id="home"><a href="/events">Events</a></li>
+                <li id="home"><a href="/news-and-events">News and Events</a></li>
                 <li id="home"><a href="/menu">Menu</a></li>
                 <li id="home"><a href="/gallery">Gallery</a></li>
                 <li id="about"><a href="/about-us">About Us</a></li>

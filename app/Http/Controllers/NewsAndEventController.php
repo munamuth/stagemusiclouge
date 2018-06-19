@@ -14,7 +14,7 @@ class NewsAndEventController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.news-and-event', compact('news'));
     }
 
     /**
