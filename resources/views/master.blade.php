@@ -206,12 +206,12 @@
             <div class="menu_area">
               <ul class="menu">
                 <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>                
-                <li id="home"><a href="/"><i class="fa fa-home"></i></a></li>
-                <li id="home"><a href="/news-and-events">News and Events</a></li>
-                <li id="home"><a href="/menu">Menu</a></li>
-                <li id="home"><a href="/gallery">Gallery</a></li>
-                <li id="about"><a href="/about-us">About Us</a></li>
-                <li id="contact"><a href="/contact-us">Contact Us</a></li>
+                <li id="home"><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+                <li id="home"><a href="{{ url('/news-and-events') }}">News and Events</a></li>
+                <li id="home"><a href="{{ url('/menu') }}">Menu</a></li>
+                <li id="home"><a href="{{ url('/gallery') }}">Gallery</a></li>
+                <li id="about"><a href="{{ url('/about-us') }}">About Us</a></li>
+                <li id="contact"><a href="{{ url('/contact-us') }}">Contact Us</a></li>
               </ul>
             </div>
             <div class="small_menu">
