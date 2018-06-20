@@ -71,7 +71,7 @@
            }
            ul.menu>li>a{
                 padding: 15px 5px 15px 5px;
-                color: #ffc2c2;
+                color: #fff;
                 font-weight: bold;
                 text-decoration: none;
                 float: left;
@@ -79,7 +79,7 @@
            }
            ul.menu>li>a:hover{
                 background: inherit;
-                color: #fffeee;
+                color: #eee;
                 /*border-bottom: solid 3px #123;*/
            }
            ul.sub_menu{
@@ -114,14 +114,14 @@
                 border-top: solid 5px #e62b4d;
                 width: 100%;
                 padding: 15px;
-                background: #f16f50;
+                background: #fff;
                 z-index: 0;
            }
            .footer .panel{
                 background: transparent;
            }
            .footer th, .footer td, .footer td>a{
-                color: #fff;
+                color: #000;
                 padding-right: 5px;
                 padding-top: 10px;
                 text-decoration: none;
@@ -211,8 +211,7 @@
                 <li id="home"><a href="/menu">Menu</a></li>
                 <li id="home"><a href="/gallery">Gallery</a></li>
                 <li id="about"><a href="/about-us">About Us</a></li>
-                <li id="contact"><a href="/">Contact Us</a></li>
-                <li id="contact"><a href="/Career">Career</a></li>
+                <li id="contact"><a href="/contact-us">Contact Us</a></li>
               </ul>
             </div>
             <div class="small_menu">

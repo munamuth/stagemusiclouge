@@ -7,6 +7,7 @@ use App\Slider;
 use App\Galery;
 use App\Menu;
 use App\About;
+use App\NewsAndEvent;
 class PageController extends Controller
 {
     public function index(Slider $slider)
@@ -32,5 +33,24 @@ class PageController extends Controller
     {
         $about = $about->first();
         return view('page.about', compact('about'));
+    }
+
+    public function news()
+    {
+        $news = new NewsAndEvent();
+        $news = $news->get();
+        return view('page.news', compact('news'));
+    }
+    public function viewNews($name)
+    {
+        $news = new NewsAndEvent();
+        $related = $news->where('slug', '!=', $name)->take(5)->get();
+        $news = $news->where('slug', $name)->first();
+        return view('page.view-news', compact('news', 'related'));
+    }
+
+    public function contact()
+    {
+        return view('page.contact');
     }
 }

@@ -44,7 +44,7 @@ class MenuController extends Controller
         $imageName = ImageUpload::imageUpload('node_modules/Image/Menu', $request->file, 500, 500);
 
         $menu->name = $request->name;
-        $menu->slug = str_slug($request->name);
+        $menu->slug = str_slug(rand().$request->name);
         $menu->category_id = $request->category_id;
         $menu->descr = $request->descr;
         $menu->image = $imageName;
@@ -92,7 +92,7 @@ class MenuController extends Controller
     {
         $menu = $menu->find($id);
         $menu->name = $request->name;
-        $menu->slug = str_slug($request->name);
+        $menu->slug = str_slug(rand().$request->name);
         $menu->category_id = $request->category_id;
         $menu->descr = $request->descr;
         $save = $menu->save();

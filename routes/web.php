@@ -43,6 +43,10 @@ Route::middleware(['web'])->group(function () {
 
     Route::get('/admin/news-and-events', 'NewsAndEventController@index');
     Route::post('/admin/news-and-events', 'NewsAndEventController@store');
+    Route::get('/admin/news-and-events/edit/{id}', 'NewsAndEventController@edit');
+    Route::post('/admin/news-and-events/update/{id}', 'NewsAndEventController@update');
+    Route::post('/admin/news-and-events/photo/change/{id}', 'NewsAndEventController@changePhoto');
+    Route::get('/admin/news-and-events/destroy/{id}', 'NewsAndEventController@destroy');
 
 
 });
@@ -55,6 +59,9 @@ Route::middleware(['web'])->group(function () {
 	Route::get('/news-and-event', 'PageController@index');
 	Route::get('/gallery', 'PageController@gallery');
 	Route::get('/about-us', 'PageController@about');
+	Route::get('/news-and-events', 'PageController@news');
+	Route::get('/news-and-events/{name}', 'PageController@viewNews');
+	Route::get('/contact-us', 'PageController@contact');
 });
 
 

@@ -2,77 +2,24 @@
 @section('content')
 	<div class="card">
 		<div class="card-header">
-			New
+			<h4>Edit ({{$news->name}})</h4>
 		</div>
 		<div class="card-body">
-			<form action="{{ url('/admin/news-and-events') }}" method="post" enctype="multipart/form-data" autocomplete="off">
-				{{ csrf_field()}}
+			<form action="{{ url('/admin/news-and-events/update/'.$news->id) }}" method="post">
+				{{csrf_field()}}
 				<div class="form-group">
-					<input type="text" name="name" class="form-control form-control-sm" placeholder="Name">
+					<label>Name</label>
+					<input type="text" name="name" class="form-control form-control-sm" value="{{$news->name}}">
 				</div>
 				<div class="form-group">
-					<input type="file" name="file">
+					<textarea name="descr">{{$news->descr}}</textarea>
 				</div>
-				<div class="form-group">
-					<textarea name="descr"></textarea>
-				</div>
-				<button class="btn btn-success" style="min-width: 100px;">Save</button>
+				<button class="btn btn-success btn-sm" style="min-width: 150px;">Update</button>
 			</form>
-			
-		</div>
-	</div>
-	<br>
-	<div class="card">
-		<div class="card-header">
-			<h4>List of News and Events</h4>
-		</div>
-		<div class="card-body" style="padding: 0px;">
-			<div class="table-responsive">
-				<table class="table table-stripped">
-					<thead>
-						<tr>
-							<td>Photo</td>
-							<td>Name</td>
-							<td>Action</td>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach( $news as $news )
-						<tr>
-							<td style="max-width: 150px;"><img src="{{ url('/node_modules/Image/News/'. $news->img) }}" class="img-fluid"></td>
-							<td>{{$news->name}}</td>
-							<td>
-								<a href="{{ url('/news-and-events/'.$news->slug) }}" class="btn btn-info btn-sm" target="_blank">View</a>
-								<a href="{{ url('/admin/news-and-events/edit/'. $news->id) }}" class="btn btn-warning btn-sm" target="blank">Edit</a>
-								<button class="btn btn-warning btn-sm" onclick="btnChangePhoto_Click({{$news->id}})">Change Photo</button>
-								<a href="{{ url('/admin/news-and-events/destroy/'.$news->id) }}" class="btn btn-danger btn-sm">destroy</a>
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-					
-				</table>
-				<div style="display: none;">
-
-					<form method="post" action="{{ url('/admin/news-and-events/photo/') }}" enctype="multipart/form-data" id="frmChangePhoto">
-						{{ csrf_field() }}
-						<input type="file" name="file" id="file">
-					</form>
-				</div>
-			</div>
 		</div>
 	</div>
 @endsection
 @section('script')
-	<script type="text/javascript">
-		function btnChangePhoto_Click(id) {
-			$('#frmChangePhoto').prop('action', '/admin/news-and-events/photo/change/'+id);
-			$('#file').click();
-		}
-		$('#file').change( function(){
-			$('#frmChangePhoto').submit()
-		});
-	</script>
 	<script type="text/javascript" src="{{ url('/node_modules/tinymce/tinymce.min.js') }}"></script>
 	<script type="text/javascript">
 		tinymce.init({

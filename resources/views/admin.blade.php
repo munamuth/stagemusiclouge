@@ -72,14 +72,14 @@
             <div class="col-3 bg-info" style="min-height: 80vh; padding: 0;">
                 <div id="menu_accordion">
                     <!--DASHBOARD-->
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#dashboard"><i class="fa fa-dashboard"></i> Dashboard</button>
                         </div>
                         <div id="dashboard" class="collapse" data-parent="#menu_accordion">
                             dashboard
                         </div>
-                    </div>
+                    </div> -->
                     <!--CONTENT SETTING-->
                     
                     <div class="card">
@@ -114,14 +114,14 @@
                     <!--Log-->
                     
                     
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#account"><i class="fa fa-users"></i> Logs</button>
                         </div>
                         <div id="account" class="collapse" data-parent="#menu_accordion">
                             log
                         </div>
-                    </div>
+                    </div> -->
                     
                 </div>
             </div>
