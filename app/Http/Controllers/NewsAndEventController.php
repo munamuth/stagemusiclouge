@@ -40,11 +40,7 @@ class NewsAndEventController extends Controller
         $news = new NewsAndEvent();
         $imageName = ImageUpload::imageUpload('node_modules/Image/News', $request->file, 700, 500);
         $news->name = $request->name;
-<<<<<<< HEAD
-        $news->slug = str_slug($request->name);
-=======
         $news->slug = str_slug(rand().$request->name);
->>>>>>> refs/remotes/origin/develop
         $news->img = $imageName;
         $news->descr = $request->descr;
         $news->save();
