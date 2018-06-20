@@ -12,9 +12,13 @@
 */
 
 
-Route::middleware(['web'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function(){
         return view('admin');
+    });
+    Route::get('/admin/logout', function(){
+    	Auth::logout();
+    	return redirect('/admin');
     });
 
     Route::get('/admin/slider', 'SliderController@index');
@@ -47,6 +51,9 @@ Route::middleware(['web'])->group(function () {
     Route::post('/admin/news-and-events/update/{id}', 'NewsAndEventController@update');
     Route::post('/admin/news-and-events/photo/change/{id}', 'NewsAndEventController@changePhoto');
     Route::get('/admin/news-and-events/destroy/{id}', 'NewsAndEventController@destroy');
+
+
+    Route::get('/admin/account', 'AccountController@index');
 
 
 });

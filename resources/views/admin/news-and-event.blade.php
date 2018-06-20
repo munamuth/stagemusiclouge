@@ -32,7 +32,7 @@
 					<thead>
 						<tr>
 							<td>Photo</td>
-							<td>Name</td>
+							<td width="50%">Name</td>
 							<td>Action</td>
 						</tr>
 					</thead>
@@ -77,6 +77,7 @@
 	<script type="text/javascript">
 		tinymce.init({
 		selector: 'textarea',
+		height: '350',
 		plugins: [
 		  'advlist autolink lists link image charmap print preview anchor textcolor',
 		  'searchreplace visualblocks code fullscreen',

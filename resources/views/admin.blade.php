@@ -57,10 +57,9 @@
         </form>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Admin</a>
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{auth::user()->name}}</a>
                 <div class="dropdown-menu">
-                    <a href="/admin/logout" class="dropdown-item">Acount Setting</a>
-                    <a href="/admin/logout" class="dropdown-item">Logout</a>
+                    <a href="{{ url('/admin/logout') }}" class="dropdown-item">Logout</a>
                 </div>
             </li>
         </ul>
@@ -107,7 +106,9 @@
                             <button class="btn btn-link" data-toggle="collapse" data-target="#account"><i class="fa fa-users"></i> Account Setting</button>
                         </div>
                         <div id="account" class="collapse" data-parent="#menu_accordion">
-                            Content
+                            <ul>
+                                <li><a href="{{ url('/admin/account') }}"><i class="fa fa-user"></i> User</a></li>
+                            </ul>
                         </div>
                     </div>
                     
@@ -156,6 +157,5 @@
 
     </script>
     @yield('script')
-
 </body>
 </html>
