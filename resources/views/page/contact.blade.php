@@ -10,7 +10,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12 col-sm-12">
-				<div class="card">
+				<!-- <div class="card">
 					<div class="card-header">Message Us</div>
 					<div class="card-body">
 						<form autocomplete="off">
@@ -30,7 +30,7 @@
 							</div>
 						</form>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

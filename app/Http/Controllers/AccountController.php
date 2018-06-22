@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 class AccountController extends Controller
 {
     /**
@@ -69,7 +70,29 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = new User();
+        $user = $user->find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if( $user->save() ){
+            $request->session()->flash('status', 'Success');
+        } else {
+            $request->session()->flash('status', 'Failed');
+        }
+        return back();
+    }
+
+    public function changepassword(Request $request, $id)
+    {
+        $user = new User();
+        $user = $user->find($id);
+        $user->password = bcrypt($request->password);
+        if( $user->save() ){
+            $request->session()->flash('status', 'Success');
+        } else {
+            $request->session()->flash('status', 'Failed');
+        }
+        return back();
     }
 
     /**

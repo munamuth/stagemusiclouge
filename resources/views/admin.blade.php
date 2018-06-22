@@ -112,8 +112,19 @@
                         </div>
                     </div>
                     
-                    <!--Log-->
-                    
+                    <!--style-->
+                     
+                    <div class="card">
+                        <div class="card-header">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#style"><i class="fa fa-magic"></i> Style Setting</button>
+                        </div>
+                        <div id="style" class="collapse" data-parent="#menu_accordion">
+                            <ul>
+                                <li><a href="{{ url('/admin/style') }}"><i class="fa fa-magic"></i> Edit Style</a></li>
+                                <li><a href="{{ url('/admin/logo') }}"><i class="fa fa-font-awesome"></i> Logo</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     
                     <!-- <div class="card">
                         <div class="card-header">

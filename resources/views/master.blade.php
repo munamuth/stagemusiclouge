@@ -17,21 +17,22 @@
         <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/jquery-ui/jquery-ui.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <?php $style =App\style::where('id', 1)->first() ?>
         <style type="text/css">
             body{
                 margin: 0;
                 padding: 0;
             }
            .header{
-                border-top: solid 5px #786;
+                border-top: solid 5px {{$style->header_border_top}};
                 position: relative;
                 width: 100%;
                 height: 150px;
-                background: #000;
+                background: {{$style->header_background}};
                 padding: 0px;
                 top: 0px;
                 left: 0px;
-                border-bottom: solid 5px #e62b4d;
+                border-bottom: solid 5px {{$style->header_border_bottom}};
            }
            .header>.logo{
                 max-width: 50%;
@@ -71,7 +72,7 @@
            }
            ul.menu>li>a{
                 padding: 15px 5px 15px 5px;
-                color: #fff;
+                color: {{$style->header_text}};
                 font-weight: bold;
                 text-decoration: none;
                 float: left;
@@ -79,7 +80,7 @@
            }
            ul.menu>li>a:hover{
                 background: inherit;
-                color: #eee;
+                color: {{$style->header_text_hover}};
                 /*border-bottom: solid 3px #123;*/
            }
            ul.sub_menu{
@@ -93,35 +94,23 @@
                 opacity: 0.95;
                 z-index: 16
            }
-           ul.sub_menu>li>a{
-                padding: 15px; 
-                display: block;
-                text-decoration: none;
-                color: #fff;
-           }
-           ul.sub_menu>li>a:hover{
-                background: #123;
-           }
-           .has_sub:hover ul.sub_menu{
-                display: block;
-           }
            .small_menu>button{
                 position: absolute;
                 top: 30px;
                 right: 5px;
            }
            .footer{
-                border-top: solid 5px #e62b4d;
+                border-top: solid 5px {{$style->footer_border_top}};
                 width: 100%;
                 padding: 15px;
-                background: #fff;
+                background: {{ $style->footer_background}};
                 z-index: 0;
            }
            .footer .panel{
                 background: transparent;
            }
            .footer th, .footer td, .footer td>a{
-                color: #000;
+                color: {{$style->footer_text}};
                 padding-right: 5px;
                 padding-top: 10px;
                 text-decoration: none;
@@ -200,7 +189,7 @@
         <div class="header">
             <div class="logo">
                 <a href="/">
-                    <img alt="Brand" src="{{ url('node_modules/logo/logo.png') }}" class="img-fluid">
+                    <img alt="Brand" src="{{ url('node_modules/logo/'. $style->logo) }}" class="img-fluid">
                 </a>
             </div>
             <div class="menu_area">
@@ -250,15 +239,15 @@
                     <div class="col-12 col-sm-5">
                         <div class="card no_radius" style="background: transparent; border: transparent;">
                             <div class="card-body text-center">
-                                <div class="fb-page" data-href="https://www.facebook.com/Stagemusiclounge/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Stagemusiclounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/grandtechsys/">Stagemusiclounge</a></blockquote></div>
+                                <div class="fb-page" data-href="https://www.facebook.com/stagemusiclounge/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Stagemusiclounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/stagemusiclounge/">Stagemusiclounge</a></blockquote></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>      
-            <div class="cpright" style="padding: 15px; text-align: center; border-top: solid 5px #e62b4d;"> 
-              <a href="/">wWw.StageMusicLounge.cOm</a> &copy; {{ date('Y') }}
+            <div class="cpright" style="background: {{$style->bottom_background}};padding: 15px; text-align: center; border-top: solid 5px {{$style->footer_border_bottom}}; color: {{$style->bottom_text}}"> 
+              <a href="/" style="color: {{$style->bottom_text}}">wWw.StageMusicLounge.cOm</a> &copy; {{ date('Y') }}
             </div> 
             <div class="fb_page">
                      

@@ -54,6 +54,29 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/admin/account', 'AccountController@index');
+    Route::post('/admin/account/update/{id}', 'AccountController@update');
+    Route::post('/admin/account/password/change/{id}', 'AccountController@changepassword');
+
+
+    Route::get('/admin/style/', 'StyleController@index');
+    Route::post('/admin/style/', 'StyleController@style');
+
+    Route::get('/admin/logo/', 'StyleController@logo');
+    Route::post('/admin/logo/', 'StyleController@logoUpdate');
+    /*
+    Route::post('/admin/style/header-backgroun', 'StyleController@headerBackground');
+    Route::post('/admin/style/header-text', 'StyleController@headerText');
+    Route::post('/admin/style/header-border-top', 'StyleController@headerBorderTop');
+    Route::post('/admin/style/header-border-bottom', 'StyleController@headerBorderBottom');
+    Route::post('/admin/style/header-text-hover', 'StyleController@headerTextHover');
+
+    Route::post('/admin/style/footer-backgroun', 'StyleController@footerBackground');
+    Route::post('/admin/style/footer-text', 'StyleControllerfooterrText');
+    Route::post('/admin/style/footer-border-top', 'StyleController@footerBorderTop');
+
+    Route::post('/admin/style/bottom-background', 'StyleController@bottomBackground');
+    Route::post('/admin/style/bottom-text', 'StyleController@bottomText');*/
+
 
 
 });
