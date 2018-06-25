@@ -27,7 +27,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/gallery', 'GaleryController@index');
     Route::post('/admin/gallery', 'GaleryController@store');    
-    Route::get('/admin/gallery/destroy/{id}/{name}', 'GaleryController@destroy');
+    Route::get('/admin/gallery/destroy/{id}', 'GaleryController@destroy');
+    Route::get('/admin/gallery/edit/{id}', 'GaleryController@edit');
+    Route::post('/admin/gallery/update/{id}', 'GaleryController@update');
+    Route::get('admin/gallery/image/destoy/{gId}/{mId}', 'GaleryController@destroyImage');
+    Route::post('admin/gallery/image/add/{gId}', 'GaleryController@addPhoto');
 
     Route::get('/admin/menu', 'MenuController@index');
     Route::post('/admin/menu', 'MenuController@store');
@@ -87,7 +91,9 @@ Route::middleware(['web'])->group(function () {
 	Route::get('/contact', 'PageController@index');
 	Route::get('/about', 'PageController@index');
 	Route::get('/news-and-event', 'PageController@index');
-	Route::get('/gallery', 'PageController@gallery');
+    Route::get('/gallery', 'PageController@gallery');
+	Route::get('/gallery/{name}', 'PageController@viewGallery');
+
 	Route::get('/about-us', 'PageController@about');
 	Route::get('/news-and-events', 'PageController@news');
 	Route::get('/news-and-events/{name}', 'PageController@viewNews');

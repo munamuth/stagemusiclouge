@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Slider;
 use App\Galery;
+use App\GalleryImage;
 use App\Menu;
 use App\About;
 use App\NewsAndEvent;
+use App\Image;
 class PageController extends Controller
 {
     public function index(Slider $slider)
@@ -21,6 +23,15 @@ class PageController extends Controller
     	$gallery = new Galery();
     	$gallery = $gallery->get();
     	return view('page.gallery', compact('gallery'));
+    }
+
+    public function viewGallery( $name )
+    {
+        $galleries = new Galery();
+        $gallery = Galery::where('slug', $name)->first();
+        $related = $galleries->where('slug', '!=', $name)->get();
+        $images = GalleryImage::where('galery_id', $gallery->id)->get();
+        return view('page.viewGallery', compact('gallery', 'images', 'related'));
     }
 
     public function menu()

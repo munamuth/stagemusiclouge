@@ -39,13 +39,13 @@
                 padding-left: 5%;
                 position: absolute;
                 display: block;
-                top:25%;
+                top:10%;
            }
            .header>logo>a{
             vertical-align:  middle;
            }
            .header>.logo>a>img{
-                width: 200px; 
+                width: 350px; 
                 vertical-align:  middle;
                 float: left;
            }
@@ -199,7 +199,7 @@
                 <li id="home"><a href="{{ url('/news-and-events') }}">News and Events</a></li>
                 <li id="home"><a href="{{ url('/menu') }}">Menu</a></li>
                 <li id="home"><a href="{{ url('/gallery') }}">Gallery</a></li>
-                <li id="about"><a href="{{ url('/about-us') }}">About Us</a></li>
+                <!-- <li id="about"><a href="{{ url('/about-us') }}">About Us</a></li> -->
                 <li id="contact"><a href="{{ url('/contact-us') }}">Contact Us</a></li>
               </ul>
             </div>
