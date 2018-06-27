@@ -10,12 +10,15 @@ use App\Menu;
 use App\About;
 use App\NewsAndEvent;
 use App\Image;
+use App\MenuCategory;
 class PageController extends Controller
 {
     public function index(Slider $slider)
     {
     	$images = $slider->get();
-    	return view('page.index', compact('images'));
+        $news = new NewsAndEvent();
+        $news = $news->take(3)->get();
+    	return view('page.index', compact('images', 'news'));
     }
 
     public function gallery()
@@ -36,9 +39,20 @@ class PageController extends Controller
 
     public function menu()
     {
-    	$menu = new Menu();
-    	$menu = $menu->get();
-    	return view('page.menu', compact('menu'));
+    	$category = new MenuCategory();
+    	$category = $category->where('status', '1')->get();
+    	return view('page.category', compact('category'));
+    }
+
+    function listMenuByCategory($name)
+    {
+        $category = new MenuCategory();
+        $menu = new Menu();
+        $cat = $category->where('slug', $name)->first();
+        $cat_id = $cat->id;
+        $categories = $category->where('status', 1)->get();
+        $menu = $menu->where('category_id', $cat_id)->get();
+        return view('page.menu', compact('menu', 'categories'));
     }
     public function about(About $about)
     {

@@ -62,13 +62,14 @@ class GaleryController extends Controller
         $file = $request->file;
         foreach ($file as  $value) {
            $imageName = ImageUpload::imageUpload('node_modules/Image/Gallery', $value, 700, 500);
-
            $image = new Image();
-           $image->name = $imageName;
-           echo $image->save();
+           $galeryImage = new GalleryImage();
 
+           $image->name = $imageName;
+           $image->save();
+           $galeryImage->insert(['image_id' => $image->id, 'galery_id' => $gId]);
         }
-        //return back();
+        return back();
     }
     /**
      * Display the specified resource.
@@ -93,7 +94,8 @@ class GaleryController extends Controller
     {
         $galery = $galery->find($id);
         $images = $galery->images;
-        return view('admin.editGallery', compact('galery', 'images'));
+        $count = $images->count();
+        return view('admin.editGallery', compact('galery', 'images', 'count'));
     }
 
     /**
@@ -107,10 +109,26 @@ class GaleryController extends Controller
     {
         $galery = $galery->find($id);
         $galery->name = $request->name;
+        $galery->slug = str_slug($request->name);
         if($galery->save()){
             $request->session()->flash('status', 'Success');
         } else {
             $request->session()->flash('status', 'Filed');
+        }
+        return back();
+    }
+
+    public function updatePhoto(Request $request, $id)
+    {
+        $image = new Image();
+        $img = $image->find($id);
+        File::delete('node_modules/Image/Gallery/'. $img->name);
+        $imageName = ImageUpload::imageUpload('node_modules/Image/Gallery', $request->file, 700, 500);
+        $img->name = $imageName;
+        if( $img -> save() ){
+            $request->session()->flash('status', 'Success');
+        } else {
+             $request->session()->flash('status', 'Failed');
         }
         return back();
     }

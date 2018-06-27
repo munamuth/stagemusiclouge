@@ -1,6 +1,6 @@
 @extends('master')
 @section('body')
-	<div class="container" style="margin-top: 5px; margin-bottom: 15px;">
+	<div class="container-fluid" style="margin-top: 5px; margin-bottom: 15px;">
 		<div class="row" style="margin-bottom: 15px;">
 			<div class="col-12">
 				<div class="card">

@@ -27,11 +27,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/gallery', 'GaleryController@index');
     Route::post('/admin/gallery', 'GaleryController@store');    
+    Route::post('admin/gallery/image/add/{gId}', 'GaleryController@addPhoto');
     Route::get('/admin/gallery/destroy/{id}', 'GaleryController@destroy');
     Route::get('/admin/gallery/edit/{id}', 'GaleryController@edit');
     Route::post('/admin/gallery/update/{id}', 'GaleryController@update');
+    Route::post('/admin/gallery/image/update/{id}', 'GaleryController@updatePhoto');
     Route::get('admin/gallery/image/destoy/{gId}/{mId}', 'GaleryController@destroyImage');
-    Route::post('admin/gallery/image/add/{gId}', 'GaleryController@addPhoto');
 
     Route::get('/admin/menu', 'MenuController@index');
     Route::post('/admin/menu', 'MenuController@store');
@@ -39,10 +40,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/menu/destroy/{id}', 'MenuController@destroy');
     Route::get('/admin/menu/edit/{id}', 'MenuController@edit');
     Route::post('/admin/menu/update/{id}', 'MenuController@update');
+    Route::get('/admin/menu/category/{name}', 'MenuController@listByCategory');
 
 
     Route::get('/admin/menu-category', 'MenuCategoryController@index');
     Route::post('/admin/menu-category', 'MenuCategoryController@store');
+    Route::get('/admin/menu-category/edit/{id}', 'MenuCategoryController@edit');
+    Route::post('/admin/menu-category/edit/{id}', 'MenuCategoryController@update');
+    Route::post('/admin/menu-category/change/photo/{id}', 'MenuCategoryController@changePhoto');
     Route::get('/admin/menu-category/destroy/{id}', 'MenuCategoryController@destroy');
 
     Route::get('/admin/about', 'AboutController@index');
@@ -87,7 +92,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['web'])->group(function () {
 	Route::get('/', 'PageController@index');
-	Route::get('/menu', 'PageController@menu');
+    Route::get('/menu', 'PageController@menu');
+	Route::get('/menu/category/{category}', 'PageController@listMenuByCategory');
 	Route::get('/contact', 'PageController@index');
 	Route::get('/about', 'PageController@index');
 	Route::get('/news-and-event', 'PageController@index');

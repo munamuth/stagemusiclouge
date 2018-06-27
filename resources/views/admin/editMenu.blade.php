@@ -32,10 +32,13 @@
 				</div>
 				<div class="form-group">
 					<label>Description</label>
-					<textarea class="form-control" name="descr" rows="5">{{$data->descr}}</textarea>
+					<input type="text" class="form-control" name="price" value="{{$data->price}}">
 				</div>
-				<button class="btn btn-warning btn-sm" type="reset" onclick="document.getElementById('formAdd').action('/admin/menu')">Reset</button>
-				<button class="btn btn-success btn-sm" id="btnSave" type="submit">Save</button>
+				<br>
+				<div class="form-group">
+					<button class="btn btn-warning btn-sm" type="reset" onclick="document.getElementById('formAdd').action('/admin/menu')">Reset</button>
+					<button class="btn btn-success btn-sm" id="btnSave" type="submit">Save</button>
+				</div>
 			</form>
 		</div>
 	</div>

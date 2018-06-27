@@ -19,7 +19,7 @@
 	<div class="container">
         <div class="row">
 			@foreach($gallery as $g)
-			<div class="col-6 col-sm-4 col-md-3" style="margin-top: 10px; padding-left: 5px; padding-right: 5px;">
+			<div class="col-6 col-sm-4 col-md-3" style="margin-top: 10px;">
 				<a href="{{ url('/gallery/'.$g->slug ) }}">
 					<div class="card overlay" style="border-radius: 0; position: relative;">
 						<img src="{{ url('node_modules/Image/Gallery/'.App\Image::find($g->image->image_id)->name ) }}" class="img-fluid">

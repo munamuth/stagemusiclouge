@@ -89,10 +89,10 @@
                             <ul>
                                 <li><a href="{{ url('/admin/slider') }}"><i class="fa fa-book"></i> Sliders</a></li>
                                 <li><a href="{{ url('/admin/menu') }}"><i class="fa fa-book"></i> Menu</a></li>
-                                <li><a href="{{ url('/admin/menu-category') }}"><i class="fa fa-book"></i> Menu Category</a></li>
-                                <li><a href="{{ url('/admin/gallery') }}"><i class="fa fa-book"></i> Galary</a></li>
-                                <li><a href="{{ url('/admin/about') }}"><i class="fa fa-book"></i> About</a></li>
-                                <li><a href="{{ url('/admin/contact') }}"><i class="fa fa-book"></i> Contact</a></li>
+                                <!-- <li><a href="{{ url('/admin/menu-category') }}"><i class="fa fa-book"></i> Menu Category</a></li> -->
+                                <li><a href="{{ url('/admin/gallery') }}"><i class="fa fa-book"></i> Gallary</a></li>
+                                <!-- <li><a href="{{ url('/admin/about') }}"><i class="fa fa-book"></i> About</a></li> -->
+                                <!-- <li><a href="{{ url('/admin/contact') }}"><i class="fa fa-book"></i> Contact</a></li> -->
                                 <li><a href="{{ url('/admin/news-and-events') }}"><i class="fa fa-book"></i> News & Events</a></li>
                             </ul>
                         </div>

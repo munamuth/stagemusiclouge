@@ -17,11 +17,20 @@ class MenuController extends Controller
      */
     public function index(Menu $menu, MenuCategory $category)
     {
-        $data = $menu->get();
-        $category = $category->get();
-        return view('admin.menu', compact('data', 'category'));
+        $menu = $menu->get();
+        $categories = $category->get();
+        return view('admin.menu', compact('menu', 'categories'));
     }
 
+
+    public function listByCategory(Menu $menu, MenuCategory $category, $name)
+    {
+        $category_id = $category->where('slug', $name)->first()->id;
+
+        $menu = $menu->where('category_id', $category_id)->get();
+        $categories = $category->get();
+        return view('admin.menu', compact('menu', 'categories'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +55,7 @@ class MenuController extends Controller
         $menu->name = $request->name;
         $menu->slug = str_slug(rand().$request->name);
         $menu->category_id = $request->category_id;
-        $menu->descr = $request->descr;
+        $menu->price = $request->price;
         $menu->image = $imageName;
         if( $menu->save() )
         {
@@ -78,6 +87,7 @@ class MenuController extends Controller
     {
         $data = $menu->find($id);
         $category = $category->get();
+
         return view('admin.editMenu', compact('data', 'category'));
     }
 
@@ -94,7 +104,7 @@ class MenuController extends Controller
         $menu->name = $request->name;
         $menu->slug = str_slug(rand().$request->name);
         $menu->category_id = $request->category_id;
-        $menu->descr = $request->descr;
+        $menu->price = $request->price;
         $save = $menu->save();
         if( $save )
         {

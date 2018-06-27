@@ -16,12 +16,10 @@
 				{{ csrf_field() }}
 				<div id="file_container">
 					<div class="form-group">
-						<input type="file" name="file[]" required>
+						<input type="file" name="file[]" required multiple>
 					</div>
 				</div>
 				<br>
-				<button class="btn btn-success btn-sm" id="btnAdd" type="button">Add more</button>
-				<button class="btn btn-warning btn-sm" id="btnRemoveLast" type="button">Remove Last</button>
 				<button class="btn btn-success btn-sm" id="btnSave" type="submit">Save</button>
 			</form>
 		</div>

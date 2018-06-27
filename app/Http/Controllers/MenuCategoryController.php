@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MenuCategory;
+use App\Http\Controllers\ImageUpload;
+use File;
 class MenuCategoryController extends Controller
 {
     /**
@@ -35,7 +37,8 @@ class MenuCategoryController extends Controller
      */
     public function store(Request $request, MenuCategory $category)
     {
-        if($category->insert(['name' => $request->name ]))
+        $imageName = ImageUpload::imageUpload('node_modules/Image/MenuCategory', $request->file, 350, 350);
+        if($category->insert(['name' => $request->name, 'slug' => str_slug($request->name), 'img' => $imageName ]))
         {
             $request->session()->flash('status', 'Success');
         } else {
@@ -65,7 +68,9 @@ class MenuCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = new MenuCategory();
+        $cat = $cat->find($id);
+        return view('admin.editCategory', compact('cat'));
     }
 
     /**
@@ -77,9 +82,23 @@ class MenuCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cat = new MenuCategory();
+        $cat = $cat->find($id);
+        $cat->name = $request->name;
+        $cat->slug = str_slug($request->name);
+        $cat->save();
+        return back();
     }
-
+    public function changePhoto($id, Request $request)
+    {
+        $cat = new MenuCategory();
+        $cat = $cat->find($id);
+        File::delete('node_modules/Image/MenuCategory/'.$cat->img);
+        $imageName = ImageUpload::imageUpload('node_modules/Image/MenuCategory', $request->file, 350, 350);
+        $cat->img = $imageName;
+        $cat->save();
+        return back();
+    }
     /**
      * Remove the specified resource from storage.
      *

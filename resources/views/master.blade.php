@@ -17,8 +17,12 @@
         <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/jquery-ui/jquery-ui.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <?php $style =App\style::where('id', 1)->first() ?>
         <style type="text/css">
+            *{
+              font-family: 'Lato';
+            }
             body{
                 margin: 0;
                 padding: 0;
@@ -39,7 +43,7 @@
                 padding-left: 5%;
                 position: absolute;
                 display: block;
-                top:10%;
+                top: 5%;
            }
            .header>logo>a{
             vertical-align:  middle;
@@ -60,12 +64,11 @@
                 list-style: none;
                 margin: 0;
                 margin-left: 10px;
-                margin-top: 89px;
                 padding: 0;
                 padding-top: 2px;
-                padding-right: 15px;
+                top: 90px;
                 background: transparent;
-                right: 100px;
+                right: 15px;
            }
            ul.menu>li{
                 float: left;
@@ -75,6 +78,8 @@
                 color: {{$style->header_text}};
                 font-weight: bold;
                 text-decoration: none;
+                font-family: 'Lato', sans-serif;
+                font-size: 20px;
                 float: left;
                 /*text-transform: uppercase;*/
            }
@@ -109,17 +114,31 @@
            .footer .panel{
                 background: transparent;
            }
-           .footer th, .footer td, .footer td>a{
+           .footer a{
                 color: {{$style->footer_text}};
                 padding-right: 5px;
                 padding-top: 10px;
                 text-decoration: none;
            }
+           .social_network a .fa{
+              font-size: 40px;
+           }
            #menu_back{
                 display: none;
            }
            .container{
-            min-height: 300px;
+            min-height: auto;
+           }
+           @media (min-width: 1367px){
+            ul.menu{
+              top: 80px;
+            }
+            ul.menu>li>a{
+              font-size: 25px;
+              padding-left: 15px;
+              padding-right: 15px;
+
+            }
            }
            @media (min-width: 1000px){
                 .small_menu>button{
@@ -175,6 +194,12 @@
                .container{
                 min-height: 215px;
               }
+              .slider-img{
+                  min-height: 300px;
+              }
+              .social_network{
+                margin-top: 15px;
+              }
            }
            .focus{/*
               border-bottom: solid 3px #123;*/
@@ -185,7 +210,7 @@
         </style>
         @yield('header')
     </head>
-    <body>
+    <body style="max-width: 1366px; margin: auto;">
         <div class="header">
             <div class="logo">
                 <a href="/">
@@ -194,8 +219,8 @@
             </div>
             <div class="menu_area">
               <ul class="menu">
-                <li id="menu_back"><a href="#"><span class="fa fa-bars" style="float: right; padding-right: 5px;"></span></a></li>                
-                <li id="home"><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+                <li id="menu_back"><a href="#"><span class="fa fa-close" style="float: right; padding-right: 5px;"></span></a></li>                
+                <li id="home"><a href="{{ url('/') }}"><i class="fa fa-home"  style="font-size: 30px;"></i></a></li>
                 <li id="home"><a href="{{ url('/news-and-events') }}">News and Events</a></li>
                 <li id="home"><a href="{{ url('/menu') }}">Menu</a></li>
                 <li id="home"><a href="{{ url('/gallery') }}">Gallery</a></li>
@@ -215,43 +240,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-7">
-                        <div class="panel panel-defualt no_radius">
-                            <div class="'panel-body">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-map-marker"></span></th><th>Address</th><td> #375, Preah Sisowath Quay, Phnom Penh</td>
-                                        </tr>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-phone"></span></th><th>Tel</th><td><a href="tel:+855 12 77 55 58">+855 17 991 303</a></td>
-                                        </tr>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-phone"></span></th><th></th><td><a href="tel:+855 12 77 55 58">+855 16 605 781</a></td>
-                                        </tr>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-envelope"></span></th><th>Email</th><td><a href="mailto:sales@grandtechsys.com">sales@stagemusiclounge.com </a></td>
-                                        </tr>
-                                    </tbody>                                    
-                                </table>
-                            </div>
+                        <div class="row">
+                          <div class="col-2">Address</div>
+                          <div class="col-10">#375, Preah Sisowath Quay, Phnom Penh</div>
+
+
+                          <div class="col-2">Tel</div>
+                          <div class="col-10"><a href="tel:+855 17 991 303">+855 17 991 303</a></div>
+                          <div class="col-2"></div>
+                          <div class="col-10"><a href="tel:+855 16 605 781">+855 16 605 781</a></div>
+                          <div class="col-2">Email</div>
+                          <div class="col-10"><a href="mailto:sales@stagemusiclounge.com">sales@stagemusiclounge.com</a></div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-5">
-                        <div class="card no_radius" style="background: transparent; border: transparent;">
-                            <div class="card-body text-center">
-                                <div class="fb-page" data-href="https://www.facebook.com/stagemusiclounge/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Stagemusiclounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/stagemusiclounge/">Stagemusiclounge</a></blockquote></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-12 col-sm-5 text-center">
+                       <div class="social_network text-centert">
+                          <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #4267b2" class="fa fa-facebook-square"></span></a>
+                          <a href="https://www.fb.com/stagemusiclounge"><span style="color: red" class="fa fa-instagram"></span></a>
+                          <a href="https://www.fb.com/stagemusiclounge"><span style="color: #1da1f2;" class="fa fa-twitter-square"></span></a>
+                       </div>
                     </div>
-                </div>
-            </div>      
+                  </div>
+            </div>
+          </div>      
             <div class="cpright" style="background: {{$style->bottom_background}};padding: 15px; text-align: center; border-top: solid 5px {{$style->footer_border_bottom}}; color: {{$style->bottom_text}}"> 
               <a href="/" style="color: {{$style->bottom_text}}">wWw.StageMusicLounge.cOm</a> &copy; {{ date('Y') }}
             </div> 
-            <div class="fb_page">
-                     
-            </div>
 
         <!-- START SCRIPT -->
         <script type="application/javascript" src="{{ url('/node_modules/jquery/dist/jquery.min.js')}}"></script>

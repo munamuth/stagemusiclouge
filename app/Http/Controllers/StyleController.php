@@ -68,7 +68,7 @@ class StyleController extends Controller
     public function logoUpdate(style $style, Request $request)
     {
         $logo = $style->find(1);
-        $imageName = ImageUpload::imageUpload('node_modules/logo/', $request->file, 200, 71);
+        $imageName = ImageUpload::imageUpload('node_modules/logo/', $request->file, 350, 135);
         File::delete('node_modules/logo/'. $logo->logo);
         $logo->logo = $imageName;
         if( $logo->save() )

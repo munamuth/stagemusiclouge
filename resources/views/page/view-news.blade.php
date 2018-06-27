@@ -2,7 +2,7 @@
 @section('body')
 	<style type="text/css">
 		#main-col{
-			box-shadow: 0px 0px 10px 0px #136;
+			box-shadow: 0px 0px 1px 0px #136;
 			margin-bottom: 15px;
 		}
 		.letter:before
@@ -11,7 +11,7 @@
 				position: absolute;
 				left: 0; right: 0;
 				top: 0; bottom: 0;
-				background: rgba(0,0,0,.4);
+				background: rgba(0,0,0,.3);
 			}
 	</style>
 	<div class="container" style="margin-top: 10px; margin-bottom: 10px;">
@@ -20,7 +20,7 @@
 				<div class="card" style="border: 0;">
 					<div class="card-body">
 						<h4>{{$news->name}}</h4>
-						<img src="{{ url('node_modules/Image/news/'.$news->img) }}" >
+						<img src="{{ url('node_modules/Image/News/'.$news->img) }}" >
 						{!!$news->descr!!}
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 					<a href="{{ url('/news-and-events/'.$news->slug) }}">
 						<div class="card-body letter" style="position: relative; padding: 0; margin-bottom: 5px;" >
 							<div class="">
-								<img src="{{ url('node_modules/Image/news/'.$news->img) }}">
+								<img src="{{ url('node_modules/Image/News/'.$news->img) }}">
 								<div style="position: absolute; bottom: 0; padding: 10px; color: #fff">
 									<h4>{{$news->name}}</h4>
 									{!! str_limit($news->descr, '100', '...')!!}

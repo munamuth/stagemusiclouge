@@ -20,13 +20,13 @@
         <div class="row">
 	        <div class="col-12 col-sm-8">
 	        	<div class="row">
-		        	<div class="col-12" style="padding: 0 5px;">
+		        	<div class="col-12" style="padding: 0 10px;">
 			        	<div class="card">
 			        		<div class="card-header">{{$gallery->name}}</div>
 			        	</div>
 		        	</div>
 		        	@foreach($images as $i)
-					<div class="col-6 col-sm-4 col-md-4" style="margin-top: 10px; padding-left: 5px; padding-right: 5px;">
+					<div class="col-6 col-sm-4 col-md-4" style="padding: 10px;">
 							<div class="card" style="border-radius: 0; position: relative;">
 								<img src="{{ url('node_modules/Image/Gallery/'.$i->getImage->name) }}" class="img-fluid">
 							</div>

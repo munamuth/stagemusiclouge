@@ -66,7 +66,7 @@
 @section('script')
 	<script type="text/javascript">
 		function btnChangePhoto_Click(id) {
-			$('#frmChangePhoto').prop('action', '/admin/news-and-events/photo/change/'+id);
+			$('#frmChangePhoto').prop('action', '{{ url("/admin/news-and-events/photo/change/") }}/'+id);
 			$('#file').click();
 		}
 		$('#file').change( function(){
