@@ -33,6 +33,7 @@
                 width: 100%;
                 height: 150px;
                 background: {{$style->header_background}};
+                background-image: url({{ url('node_modules/background/header.jpg') }});
                 padding: 0px;
                 top: 0px;
                 left: 0px;
@@ -68,13 +69,13 @@
                 padding-top: 2px;
                 top: 90px;
                 background: transparent;
-                right: 15px;
+                right: 20px;
            }
            ul.menu>li{
                 float: left;
            }
            ul.menu>li>a{
-                padding: 15px 5px 15px 5px;
+                padding: 15px 10px 15px 10px;
                 color: {{$style->header_text}};
                 font-weight: bold;
                 text-decoration: none;
@@ -109,6 +110,7 @@
                 width: 100%;
                 padding: 15px;
                 background: {{ $style->footer_background}};
+                background-image: url({{ url('node_modules/background/header.jpg') }});
                 z-index: 0;
            }
            .footer .panel{
@@ -130,7 +132,7 @@
             min-height: auto;
            }
            @media (min-width: 1367px){
-            ul.menu{
+           /* ul.menu{
               top: 80px;
             }
             ul.menu>li>a{
@@ -138,7 +140,7 @@
               padding-left: 15px;
               padding-right: 15px;
 
-            }
+            }*/
            }
            @media (min-width: 1000px){
                 .small_menu>button{
@@ -154,15 +156,15 @@
                     display: block;
                 }
                 .header>.menu_area{
-                    width: 60%;
+                    width: 80%;
                     position: absolute;
-                    right: -60%;
+                    right: -80%;
                     display: none;
                     z-index: 16;
                 }
                 ul.menu{
                     margin-top: 0px;
-                    background: #123;
+                    background: {{$style->header_background}};
                     right: 0;
                 }
                ul.menu>li{
@@ -239,7 +241,7 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-7">
+                    <div class="col-12 col-sm-4">
                         <div class="row">
                           <div class="col-2">Address</div>
                           <div class="col-10">#375, Preah Sisowath Quay, Phnom Penh</div>
@@ -253,12 +255,19 @@
                           <div class="col-10"><a href="mailto:sales@stagemusiclounge.com">sales@stagemusiclounge.com</a></div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-5 text-center">
+                    <div class="col-12 col-sm-4 text-center">
                        <div class="social_network text-centert">
                           <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #4267b2" class="fa fa-facebook-square"></span></a>
-                          <a href="https://www.fb.com/stagemusiclounge"><span style="color: red" class="fa fa-instagram"></span></a>
-                          <a href="https://www.fb.com/stagemusiclounge"><span style="color: #1da1f2;" class="fa fa-twitter-square"></span></a>
+                          <a href="https://www.instagram.com/stage_375/" target="blank"><span style="color: red" class="fa fa-instagram"></span></a>
+                          <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #1da1f2;" class="fa fa-twitter-square"></span></a>
+                          <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #2b6b04;" class="fa fa-tripadvisor"></span></a>
                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 text-center">
+                      <div class="text-center" style="margin: auto;">
+                        <div class="fb-page" data-href="https://www.facebook.com/stagemusiclounge" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/stagemusiclounge" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/stagemusiclounge">Stage Music Lounge &amp; Sports Bar</a></blockquote></div>
+                      </div>
                     </div>
                   </div>
             </div>
@@ -267,6 +276,20 @@
               <a href="/" style="color: {{$style->bottom_text}}">wWw.StageMusicLounge.cOm</a> &copy; {{ date('Y') }}
             </div> 
 
+
+
+
+
+
+
+            <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=176531412957775&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <!-- START SCRIPT -->
         <script type="application/javascript" src="{{ url('/node_modules/jquery/dist/jquery.min.js')}}"></script>
         <script type="text/javascript" src="{{ url('/node_modules/jquery-ui/jquery-ui.js') }}"></script>

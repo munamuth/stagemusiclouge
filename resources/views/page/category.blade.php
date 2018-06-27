@@ -11,11 +11,12 @@
 	<div class="container" style="margin-bottom: 15px;">
         <div class="row">
 			@foreach($category as $cat)
-			<div class="col-6 col-sm-4 col-md-3 col-lg-2" style="margin-top: 10px; padding-left: 5px; padding-right: 5px;">
+			<div class="col-6 col-sm-3 col-md-3" style="margin-top: 10px; padding-left: 5px; padding-right: 5px;">
 				<div class="card" style="border-radius: 0">
 					<a href="{{ url('/menu/category/'. $cat->slug) }}">
-					<img src="{{ url('node_modules/Image/MenuCategory/'.$cat->img) }}" class="img-fluid">
-					<p class="text-center" style="margin-bottom: 0; font-weight: bold;">{{$cat->name}}</p>
+						<img src="{{ url('node_modules/Image/MenuCategory/'.$cat->img) }}" class="img-fluid">
+						<p class="text-center" style="margin-bottom: 0; font-weight: bold;">{{$cat->name}}</p>
+					</a>
 				</div>
 			</div>
 			@endforeach

@@ -1,5 +1,11 @@
 @extends('master')
 @section('body')
+<style type="text/css">
+	@media (min-width: 1200px)
+	.container {
+	    max-width: 1366px;
+	}
+</style>
 	<div class="container-fluid" style="margin-top: 5px; margin-bottom: 15px;">
 		<div class="row" style="margin-bottom: 15px;">
 			<div class="col-12">
