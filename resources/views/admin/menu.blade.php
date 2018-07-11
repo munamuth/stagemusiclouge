@@ -45,7 +45,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<td width="10%">Image</td>
+											<!-- <td width="10%">Image</td> -->
 											<td>Name</td>
 											<td>Category</td>
 											<td>Price</td>
@@ -55,13 +55,13 @@
 									<tbody>
 										@foreach( $menu as $m )
 										<tr>
-											<td><img src="{{ url('node_modules/Image/Menu/'.$m->image) }}" class="img-fluid"></td>
+											<!-- <td><img src="{{ url('node_modules/Image/Menu/'.$m->image) }}" class="img-fluid"></td> -->
 											<td>{{ $m->name }}</td>
 											<td>{{ $m->type->name }}</td>
 											<td>$ {{ $m->price }}</td>
 											<td>
 												<a href="#" class="btn btn-sm btn-primary" onclick="btnEditMenu_Click({{$m->id}})"><i class="fa fa-edit"></i></a> 
-												<a href="#" class="btn btn-sm btn-primary" onclick="btnChangePhoto_Click({{$m->id}})"><i class="fa fa-repeat"></i></a> 
+												<!-- <a href="#" class="btn btn-sm btn-primary" onclick="btnChangePhoto_Click({{$m->id}})"><i class="fa fa-repeat"></i></a>  -->
 												<a href="{{ url('/admin/menu/destroy/'.$m->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-trash"></i></a> 
 											</td>
 										</tr>

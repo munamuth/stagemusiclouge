@@ -51,8 +51,9 @@ class PageController extends Controller
         $cat = $category->where('slug', $name)->first();
         $cat_id = $cat->id;
         $categories = $category->where('status', 1)->get();
+        $category = $category->find($cat_id);
         $menu = $menu->where('category_id', $cat_id)->get();
-        return view('page.menu', compact('menu', 'categories'));
+        return view('page.menu', compact('menu', 'categories', 'category'));
     }
     public function about(About $about)
     {

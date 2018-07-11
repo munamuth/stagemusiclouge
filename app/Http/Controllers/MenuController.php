@@ -50,8 +50,8 @@ class MenuController extends Controller
     public function store(Request $request, Menu $menu)
     {
         
-        $imageName = ImageUpload::imageUpload('node_modules/Image/Menu', $request->file, 500, 500);
-
+        /*$imageName = ImageUpload::imageUpload('node_modules/Image/Menu', $request->file, 500, 500);*/
+        $imageName = "default.png";
         $menu->name = $request->name;
         $menu->slug = str_slug(rand().$request->name);
         $menu->category_id = $request->category_id;
@@ -116,12 +116,12 @@ class MenuController extends Controller
     }
     public function changePhoto($id, Menu $menu, Request $request)
     {   
-        $menu = $menu->find($id);        
+        /*$menu = $menu->find($id);        
         $delete = File::delete('node_modules/Image/Menu/'. $menu->image );
         $imageName = ImageUpload::imageUpload('node_modules/Image/Menu', $request->file, 500, 500);
         $menu->image = $imageName;
         $menu->save();
-        return back();
+        return back();*/
     }
     /**
      * Remove the specified resource from storage.
@@ -132,7 +132,7 @@ class MenuController extends Controller
     public function destroy($id, Menu $menu)
     {
         $menu = $menu->find($id);
-        $delete = File::delete('node_modules/Image/Menu/'. $menu->image );
+       /* $delete = File::delete('node_modules/Image/Menu/'. $menu->image );*/
         $menu->destroy($id);
         return back();
     }
