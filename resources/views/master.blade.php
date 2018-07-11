@@ -13,9 +13,11 @@
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
 
-        <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/font-awesome/css/font-awesome.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/jquery-ui/jquery-ui.css') }}">
+        <link rel="stylesheet" href="{{ url('/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css') }}" />
+        <link rel="stylesheet" href="{{ url('/node_modules/owl.carousel/dist/assets/owl.carousel.min.css') }}" />
         <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="{{ url('/node_modules/font-awesome/css/font-awesome.min.css')}}">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <?php $style =App\style::where('id', 1)->first() ?>
@@ -239,34 +241,49 @@
         
         @yield('body')
         <div class="footer">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-sm-4">
-                        <div class="row">
-                          <div class="col-2">Address</div>
-                          <div class="col-10">#375, Preah Sisowath Quay, Phnom Penh</div>
-
-
-                          <div class="col-2">Tel</div>
-                          <div class="col-10"><a href="tel:+855 17 991 303">+855 17 991 303</a></div>
-                          <div class="col-2"></div>
-                          <div class="col-10"><a href="tel:+855 16 605 781">+855 16 605 781</a></div>
-                          <div class="col-2">Email</div>
-                          <div class="col-10"><a href="mailto:sales@stagemusiclounge.com">sales@stagemusiclounge.com</a></div>
-                        </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" style="padding-bottom: 15px;">
+                        <h4>Contact Us</h4>
+                          <div class="row">
+                            <div class="col-3">Address</div>
+                            <div class="col-9">#375, Preah Sisowath Quay, Phnom Penh</div>
+                            <div class="col-3">Tel</div>
+                            <div class="col-9"><a href="tel:+855 17 991 303">+855 17 991 303</a></div>
+                            <div class="col-3"></div>
+                            <div class="col-9"><a href="tel:+855 16 605 781">+855 16 605 781</a></div>
+                            <div class="col-3">Email</div>
+                            <div class="col-9"><a href="mailto:sales@stagemusiclounge.com">sales@stagemusiclounge.com</a></div>
+                          </div>
                     </div>
-                    <div class="col-12 col-sm-4 text-center">
-                       <div class="social_network text-centert">
+                    <hr>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" style="padding-bottom: 15px;">
+                      <h4>Business Hour</h4>
+                        <ul>
+                          <li>Monday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Tuesday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Wednesday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Thursday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Friday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Saturday <span class="float-right">3:00PM - 12:00AM</span></li>
+                          <li>Sunday <span class="float-right">3:00PM - 12:00AM</span></li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3" style="padding-bottom: 15px;">
+                      <h4>Follow Us</h4>
+                       <div class="social_network">
                           <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #4267b2" class="fa fa-facebook-square"></span></a>
                           <a href="https://www.instagram.com/stage_375/" target="blank"><span style="color: red" class="fa fa-instagram"></span></a>
                           <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #1da1f2;" class="fa fa-twitter-square"></span></a>
                           <a href="https://www.fb.com/stagemusiclounge" target="blank"><span style="color: #2b6b04;" class="fa fa-tripadvisor"></span></a>
                        </div>
                     </div>
-
-                    <div class="col-12 col-sm-4 text-center">
+                    <hr>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center" style="padding-bottom: 15px;">
+                      <h4 class="text-left">Our Facebook Page</h4>
                       <div class="text-center" style="margin: auto;">
-                        <div class="fb-page" data-href="https://www.facebook.com/stagemusiclounge" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/stagemusiclounge" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/stagemusiclounge">Stage Music Lounge &amp; Sports Bar</a></blockquote></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/stagemusiclounge" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-width="300" data-show-facepile="false"><blockquote cite="https://www.facebook.com/stagemusiclounge" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/stagemusiclounge">Stage Music Lounge &amp; Sports Bar</a></blockquote></div>
                       </div>
                     </div>
                   </div>
@@ -295,6 +312,7 @@
         <script type="text/javascript" src="{{ url('/node_modules/jquery-ui/jquery-ui.js') }}"></script>
         <script type="application/javascript" src="{{ url('/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         
+        <script src="{{ url('/node_modules/owl.carousel/dist/owl.carousel.min.js') }}"></script>
         <script type="text/javascript">
             $('.date').datepicker({ dateFormat: "dd-mm-yy"});
             $('#btn-menu').click( function(){
